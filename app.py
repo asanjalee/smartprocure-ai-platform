@@ -183,10 +183,10 @@ st.markdown("""
             opacity: 0.9;
         }
         
-        /* Glassmorphic Metrics Card */
+        /* Dynamic Theme Metrics Card */
         .metric-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background-color: var(--secondary-background-color, rgba(120, 120, 120, 0.05));
+            border: 1px solid rgba(128, 128, 128, 0.15);
             padding: 16px;
             border-radius: 12px;
             text-align: center;
@@ -195,7 +195,8 @@ st.markdown("""
         
         .metric-lbl {
             font-size: 0.8rem;
-            color: #94A3B8;
+            color: var(--text-color, #94A3B8);
+            opacity: 0.7;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -205,7 +206,7 @@ st.markdown("""
             font-size: 1.5rem;
             font-weight: 700;
             margin-top: 5px;
-            color: #F8FAFC;
+            color: var(--text-color, inherit);
         }
         
         /* Agent communication rolling logs */
@@ -350,8 +351,24 @@ st.markdown("""
 
 # --- Sidebar Section ---
 with st.sidebar:
-    st.image("https://img.icons8.com/color/96/000000/shield-with-security-lock.png", width=80)
-    st.title("Admin Console")
+    # Premium Inline SVG Icon (100% Offline-friendly, no broken image links)
+    st.markdown("""
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px; margin-top: 10px;">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/0000/svg">
+                <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" fill="url(#shieldGrad)" stroke="#3B82F6" stroke-width="1.5" stroke-linejoin="round"/>
+                <!-- Sleek lock symbol inside shield -->
+                <rect x="9" y="12" width="6" height="5" rx="1" fill="#FFFFFF"/>
+                <path d="M10 12V10C10 8.89543 10.8954 8 12 8C13.1046 8 14 8.89543 14 10V12" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+                <defs>
+                    <linearGradient id="shieldGrad" x1="4" y1="2" x2="20" y2="22" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#1E3A8A"/>
+                        <stop offset="1" stop-color="#0D9488"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <span style="font-size: 1.5rem; font-weight: 700; color: var(--text-color, #FFFFFF); letter-spacing: -0.02em;">Admin Console</span>
+        </div>
+    """, unsafe_allow_html=True)
     
     # 1. User Identity & Auditing Controls
     role = st.selectbox(

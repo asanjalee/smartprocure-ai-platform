@@ -1,0 +1,4 @@
+SupplierID,SupplierName,OverallRating,OnTimeDeliveryRate,QualityScore,FinancialRiskScore,PastViolationsCount,YearFounded,PreferredStatus
+VEND-A,Apex Office Solutions,4.2,0.92,0.9,Low,0,2010,Yes
+VEND-B,Beacon Tech Furniture,2.8,0.74,0.68,Medium,2,2021,No
+VEND-C,Crown Workspace Group,4.8,0.98,0.96,Low,0,2005,Yes
